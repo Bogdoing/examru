@@ -1,0 +1,74 @@
+---
+import IArrow from "./icon/IArrow.astro"
+---
+
+<!-- FAQ -->
+<section id="faq" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Часто задаваемые вопросы
+            </h2>
+        </div>
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-4 text-left text-gray-900 font-medium hover:bg-gray-50 focus:outline-none" onclick="toggleFAQ(1)">
+                        <span>Какой формат обучения?</span>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-200" id="faq-icon-1">
+                            <IArrow height="25px" width="25px"/>
+                        </i>
+                    </button>
+                    <div class="hidden px-4 pb-4 text-gray-600" id="faq-content-1">
+                        <p>Обучение проходит онлайн в формате видеоуроков, которые доступны в любое время. Каждую неделю проводятся живые вебинары с разбором сложных тем. Домашние задания проверяются преподавателями с подробной обратной связью.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-4 text-left text-gray-900 font-medium hover:bg-gray-50 focus:outline-none" onclick="toggleFAQ(2)">
+                        <span>Сколько времени нужно уделять занятиям?</span>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-200" id="faq-icon-2">
+                            <IArrow height="25px" width="25px"/>
+                        </i>
+                    </button>
+                    <div class="hidden px-4 pb-4 text-gray-600" id="faq-content-2">
+                        <p>Рекомендуем уделять курсу 4-6 часов в неделю. Это включает просмотр видеоуроков (1-2 часа), выполнение практических заданий (2-3 часа) и участие в вебинарах (1 час). Однако вы можете заниматься в своем темпе, так как все материалы доступны 24/7.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-4 text-left text-gray-900 font-medium hover:bg-gray-50 focus:outline-none" onclick="toggleFAQ(3)">
+                        <span>Есть ли гарантия результата?</span>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-200" id="faq-icon-3">
+                            <IArrow height="25px" width="25px"/>
+                        </i>
+                    </button>
+                    <div class="hidden px-4 pb-4 text-gray-600" id="faq-content-3">
+                        <p>Мы гарантируем, что при выполнении всех рекомендаций преподавателей и регулярной работе над курсом вы достигнете заявленных результатов. Если курс вам не подойдет, мы вернем деньги в течение первых 14 дней после покупки.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="w-full flex justify-between items-center p-4 text-left text-gray-900 font-medium hover:bg-gray-50 focus:outline-none" onclick="toggleFAQ(4)">
+                        <span>Можно ли получить налоговый вычет за обучение?</span>
+                        <i class="fas fa-chevron-down text-purple-600 transition-transform duration-200" id="faq-icon-4">
+                            <IArrow height="25px" width="25px"/>
+                        </i>
+                    </button>
+                    <div class="hidden px-4 pb-4 text-gray-600" id="faq-content-4">
+                        <p>Да, наша организация имеет лицензию на образовательную деятельность, поэтому вы можете получить налоговый вычет в размере 13% от стоимости курса. После оплаты мы высылаем все необходимые документы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script defer>
+        // FAQ аккордеон
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('transform');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>

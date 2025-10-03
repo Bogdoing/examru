@@ -1,0 +1,40 @@
+---
+import ICall from "../icon/ICall.astro"
+import ButtonTg from "./ButtonTg.astro"
+---
+
+<!-- Hero секция -->
+<div class="hero-gradient text-white">
+    <div class="max-w-7xl mx-auto mt-16 py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                Подготовка к ЕГЭ и ОГЭ
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl">
+                Занятия с экспертами своего дела. Начни обучение сегодня! <br>
+                Пробное занятие <b>БЕСПЛАТНО!</b>
+            </p>
+            <div class="mt-10">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#courses" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-gray-50">
+                        Выбрать предмет
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex">
+                    <!-- <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-700 bg-opacity-60 hover:bg-opacity-70">
+                        <ICall height="16px" width="16px"/>
+                        Связаться с нами
+                    </a> -->
+                    <ButtonTg button="false"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .hero-gradient {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+    }
+</style>

@@ -1,0 +1,36 @@
+---
+import ICall from "../icon/ICall.astro"
+
+const { button = "false", css = "" } = Astro.props;
+
+// Настройте эти значения под себя
+const TELEGRAM_USERNAME = "Ja_6b";
+const PREDEFINED_MESSAGE = "Здравствуйте! Хочу связаться с вами чтобы уточнить...";
+
+// Кодируем сообщение для URL
+const encodedMessage = encodeURIComponent(PREDEFINED_MESSAGE);
+const telegramLink = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`;
+---
+
+{button === "true" ? 
+  <div class={css}>
+    <a href={telegramLink} target="_blank" rel="noopener noreferrer" >
+      <button 
+        type="button"
+        class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full transition duration-150 ease-in-out"
+      >
+        Связаться с нами
+      </button>
+    </a>
+  </div>
+: 
+  <a 
+    href={telegramLink} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-700 bg-opacity-60 hover:bg-opacity-70"
+  >
+    <ICall height="16px" width="16px"/> 
+    Связаться с нами
+  </a>
+}

@@ -1,0 +1,74 @@
+---
+import IUser from "./icon/IUser.astro";
+
+// Данные отзывов
+const reviews = [
+  {
+    name: "Михаил",
+    avatar: "https://randomuser.me/api/portraits/women/12.jpg",
+    text: "Успешно подготовил ребенка к сдаче ОГЭ с нулевого уровня за год в режиме онлайн занятий раз. Учебный процесс построен на хорошем уровне, возможна разумная гибкость графиков. Всем остались довольны (и ученик и родители)",
+    rating: 5
+  },
+  {
+    name: "Вадим",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    text: "Спасибо большое, за полгода набрал 88 баллов!!!",
+    rating: 5
+  },
+  {
+    name: "Юлия",
+    avatar: "https://randomuser.me/api/portraits/women/45.jpg",
+    text: "Подтянул школьную программу по информатике и прекрасно подготовил к ОГЭ. Сын сдал экзамен на 5. Спасибо!",
+    rating: 5
+  },
+  {
+    name: "Сюзанна",
+    avatar: "",
+    text: "Помог подготовиться к егэ на 70 баллов с нуля, за пол года. За это благодарю",
+    rating: 5
+  }
+];
+---
+
+<!-- Отзывы -->
+<section id="reviews" class="bg-purple-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                Отзывы наших учеников
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review) => (
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            {/* <img class="h-10 w-10 rounded-full" src={review.avatar} alt={review.name}> */}
+                            <IUser class="h-10 w-10 rounded-full" width="40px" heigth="40px"/>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-bold text-gray-900">{review.name}</h4>
+                            <div class="flex mt-1">
+                                {Array.from({ length: review.rating }, (_, i) => (
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">{review.text}</p>
+                </div>
+            ))}
+        </div>
+        <div class="w-full flex justify-center pt-12">
+                <!-- <div class="profi-widget" data-id="cc63c50dbe954023e8428155f8e60964" data-type="210x190">
+                    Powered by <a href="https://profi.ru/profile/BabayevDA3">Profi.ru</a>
+                </div>
+                <script src="https://profi.ru/jqs/widget/widget.js"></script> -->
+
+                <div class="profi-widget" data-id="cc63c50dbe954023e8428155f8e60964" data-type="300x100">
+                    Powered by <a href="https://profi.ru/profile/BabayevDA3">Profi.ru</a>
+                </div>
+                <script defer src="https://profi.ru/jqs/widget/widget.js"></script>
+        </div>
+    </div>
+</section>

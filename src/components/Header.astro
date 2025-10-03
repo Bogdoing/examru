@@ -1,0 +1,143 @@
+---
+import IEducation from '../components/icon/IEducation.astro'
+import IMenu from '../components/icon/IMenu.astro'
+import ButtonTg from "./block/ButtonTg.astro"
+---
+
+<!-- Навигация -->
+<!-- <nav class="bg-white shadow-sm sticky top-0 z-50"> -->
+<nav class="fixed bg-white shadow-sm w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <i class="fa-solid fa-graduation-cap text-purple-600 text-2xl mr-2">
+                        <IEducation height="32px" width="32px"/>
+                    </i>
+                    <span class="text-xl font-bold text-gray-900">Exam<span class="text-purple-600">Ru</span></span>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#courses" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" onclick="setActiveNav(this)">
+                        Курсы
+                    </a>
+                    <a href="#team" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" onclick="setActiveNav(this)">
+                        Преподаватели
+                    </a>
+                    <a href="#reviews" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" onclick="setActiveNav(this)">
+                        Отзывы
+                    </a>
+                    <a href="#faq" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" onclick="setActiveNav(this)">
+                        FAQ
+                    </a>
+                </div>
+            </div>
+            <ButtonTg button="true" css="hidden sm:ml-6 sm:flex sm:items-center"></ButtonTg>
+            <div class="-mr-2 flex items-center sm:hidden">
+                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                    <span class="sr-only">Open main menu</span>
+                    <i class="fas fa-bars">
+                        <IMenu height="32px" width="32px"/>
+                    </i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="hidden sm:hidden" id="mobile-menu">
+        <div class="pt-2 pb-3 space-y-1">
+            <a href="#courses" class="mobile-nav-link border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" onclick="setActiveMobileNav(this)">
+                Курсы
+            </a>
+            <a href="#team" class="mobile-nav-link border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" onclick="setActiveMobileNav(this)">
+                Преподаватели
+            </a>
+            <a href="#reviews" class="mobile-nav-link border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" onclick="setActiveMobileNav(this)">
+                Отзывы
+            </a>
+            <a href="#faq" class="mobile-nav-link border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" onclick="setActiveMobileNav(this)">
+                FAQ
+            </a>
+            <ButtonTg button="true" css="mt-4 pl-3"></ButtonTg>
+        </div>
+    </div>
+</nav>
+
+
+<script defer>
+    // Мобильное меню
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
+
+    // Установка активной навигации для десктопной версии
+    function setActiveNav(element) {
+        // Убираем активный класс у всех ссылок
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('border-purple-500', 'text-gray-900');
+            link.classList.add('border-transparent', 'text-gray-500');
+        });
+        
+        // Добавляем активный класс текущей ссылке
+        element.classList.remove('border-transparent', 'text-gray-500');
+        element.classList.add('border-purple-500', 'text-gray-900');
+    }
+
+    // Установка активной навигации для мобильной версии
+    function setActiveMobileNav(element) {
+        // Убираем активный класс у всех мобильных ссылок
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.classList.remove('bg-purple-50', 'border-purple-500', 'text-purple-700');
+            link.classList.add('border-transparent', 'text-gray-500');
+        });
+        
+        // Добавляем активный класс текущей мобильной ссылке
+        element.classList.remove('border-transparent', 'text-gray-500');
+        element.classList.add('bg-purple-50', 'border-purple-500', 'text-purple-700');
+        
+        // Закрываем мобильное меню после выбора
+        toggleMobileMenu();
+    }
+
+    // Автоматическое определение активного раздела при скролле
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Обновляем активное состояние навигации
+            navLinks.forEach(link => {
+                link.classList.remove('border-purple-500', 'text-gray-900');
+                link.classList.add('border-transparent', 'text-gray-500');
+                
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('border-transparent', 'text-gray-500');
+                    link.classList.add('border-purple-500', 'text-gray-900');
+                }
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('bg-purple-50', 'border-purple-500', 'text-purple-700');
+                link.classList.add('border-transparent', 'text-gray-500');
+                
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('border-transparent', 'text-gray-500');
+                    link.classList.add('bg-purple-50', 'border-purple-500', 'text-purple-700');
+                }
+            });
+        });
+    });
+</script>
