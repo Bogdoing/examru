@@ -8,7 +8,6 @@ const encodedMessage = encodeURIComponent(PREDEFINED_MESSAGE);
 const telegramLink = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`;
 
 
-
 // Данные курсов — теперь они обрабатываются на этапе сборки Astro
 const arrDataCourses = [    
   {
@@ -18,7 +17,7 @@ const arrDataCourses = [
     time: '11 класс',
     fullName: 'ЕГЭ по информатике',
     description: 'Подготовка к экзамену ЕГЭ по информатике с нуля до 90+ баллов',
-    price: 12900
+    price: 1700
   },
   {
     filtreType: 'oge',
@@ -27,34 +26,7 @@ const arrDataCourses = [
     time: '9 класс',
     fullName: 'ОГЭ по информатике',
     description: 'Эффективная подготовка к ОГЭ по информатике с разбором всех типовых задач',
-    price: 7900
-  },
-  {
-    filtreType: 'ege',
-    type: 'ЕГЭ',
-    item: 'Математика',
-    time: '11 класс',
-    fullName: 'ЕГЭ по математике (профиль)',
-    description: 'Полный курс подготовки к профильному ЕГЭ по математике с нуля до 80+ баллов',
-    price: 12900
-  },
-  {
-    filtreType: 'oge',
-    type: 'ОГЭ',
-    item: 'Математика',
-    time: '9 класс',
-    fullName: 'ОГЭ по математике',
-    description: 'Эффективная подготовка к ОГЭ по математике с разбором всех типовых задач',
-    price: 7900
-  },
-  {
-    filtreType: 'ege',
-    type: 'ЕГЭ',
-    item: 'Математика',
-    time: '11 класс',
-    fullName: 'ЕГЭ по математике (база)',
-    description: 'Полный курс подготовки к профильному ЕГЭ по математике с нуля до 80+ баллов',
-    price: 7900
+    price: 1700
   },
   {
     filtreType: 'prog',
@@ -63,16 +35,16 @@ const arrDataCourses = [
     time: 'Для начинающих',
     fullName: 'Python для начинающих',
     description: 'Основы программирования на Python с нуля. Создай свои первые проекты!',
-    price: 8900
+    price: 2000
   },
   {
     filtreType: 'prog',
     type: 'Программирование',
     item: 'Менторство',
-    time: 'Для знатоков',
-    fullName: 'Python для анализа данных',
-    description: 'Освой Pandas, NumPy, Matplotlib и научись работать с реальными данными',
-    price: 14900
+    time: 'Для начинающих',
+    fullName: 'Frontned для начинающих',
+    description: 'Основы разработки клиентских приложений на JavaScript. Создай свой первый проект на Vue.js',
+    price: 2000
   },
 ];
 
