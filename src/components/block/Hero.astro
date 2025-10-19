@@ -14,19 +14,16 @@ import ButtonTg from "./ButtonTg.astro"
                 Занятия с экспертами своего дела. Начни обучение сегодня! <br>
                 Пробное занятие <b>БЕСПЛАТНО!</b>
             </p>
-            <div class="mt-10">
-                <div class="inline-flex rounded-md shadow">
-                    <a href="#courses" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-gray-50">
+            <div class="mt-10 flex flex-col sm:flex-row sm:justify-center gap-4">
+                <div class="rounded-md shadow">
+                    <a href="#courses" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-gray-50 w-full sm:w-auto">
                         Выбрать предмет
                     </a>
                 </div>
-                <div class="ml-3 inline-flex">
-                    <!-- <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-700 bg-opacity-60 hover:bg-opacity-70">
-                        <ICall height="16px" width="16px"/>
-                        Связаться с нами
-                    </a> -->
-                    <ButtonTg button="false"/>
+                <div>
+                    <ButtonTg button="false" css="w-full sm:w-auto"/>
                 </div>
+            </div>
             </div>
         </div>
     </div>
